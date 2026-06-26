@@ -1,11 +1,11 @@
-const logger = () =>{
-    return 2*5;
-};
+// const logger = () =>{
+//     return 2*5;
+// };
 
-const myName = "Afsal";
+// const myName = "Afsal";
 
-module.exports = {
-    logger,
-    myName,
+// module.exports = {
+//     logger,
+//     myName,
 
-}
+// }
