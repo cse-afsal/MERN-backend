@@ -23,14 +23,31 @@ const app = express();
 //     res.json("<h1>Contact</h1>");
 // });
 
-app.use(express.static("views"))
+//app.use(express.static("views"))
 
-app.get("/*path",(req,res)=>{
-    res.status(404)
-    res.send("<h1>404</h1>");
-});
+// app.get("/*path",(req,res)=>{
+//     res.status(404)
+//     res.send("<h1>404</h1>");
+// });
+
+//const token = "123";
+
+app.get("/profile", Token ,(req,res)=>{
+    console.log("User logged")
+
+     res.send("<h1>sucess</h1>");
+
+ });
+
+ function Token(req,res,next){
+      console.log("Creating Token");
+      next();
+ }
+
 
 
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT,()=> console.log(`Server running on ${PORT}`));
+//app.listen(PORT,()=> console.log(`Server running on ${PORT}`));
+
+app.listen(PORT);
