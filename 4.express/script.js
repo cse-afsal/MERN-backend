@@ -46,22 +46,30 @@ app.get("/profile", Token ,Validation, (req,res)=>{
     
  });
 
+
  function Token(req,res,next){
       console.log("Creating Token...");
-      setInterval(()=>{
-        const TOKEN = "123";
-        req.token = Token;
+     
+       
+        req.token = true;
         next();
-      },2000);
+      };
       
- }
 
- function Validation(req,res,next){
+function Validation(req,res,next){
     if (req.token){
         
         console.log("Token Approved");
         next();
+        return;
+    }else{
+      
+        console.log("NO Token");
+    res.send("<h1>NO Auth </h1>")
+
     }
+
+    
     
  }
 
