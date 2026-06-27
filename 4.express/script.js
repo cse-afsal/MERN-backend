@@ -32,19 +32,38 @@ const app = express();
 
 //const token = "123";
 
-app.get("/profile", Token ,(req,res)=>{
+// app.get("/profile", Token ,(req,res,next)=>{
+//     console.log("User logged")
+
+//      res.send("<h1>sucess</h1>");
+//      next();
+
+
+app.get("/profile", Token ,Validation, (req,res)=>{
     console.log("User logged")
 
      res.send("<h1>sucess</h1>");
-
+    
  });
 
  function Token(req,res,next){
-      console.log("Creating Token");
-      next();
+      console.log("Creating Token...");
+      setInterval(()=>{
+        const TOKEN = "123";
+        req.token = Token;
+        next();
+      },2000);
+      
  }
 
-
+ function Validation(req,res,next){
+    if (req.token){
+        
+        console.log("Token Approved");
+        next();
+    }
+    
+ }
 
 const PORT = process.env.PORT || 3001;
 
